@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Echo | Ideas for Modern Living</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="#">URBAN<span>ECHO</span></a>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="nav">
+    <a href="#home">Home</a><a href="#stories">Stories</a><a href="#about">About</a><a href="#newsletter">Newsletter</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow">THE MODERN CITY JOURNAL</p>
+    <h1>Ideas worth<br><em>hearing.</em></h1>
+    <p class="hero-text">A fresh collection of stories about technology, travel, food, mindset and the little details that make everyday life interesting.</p>
+    <a class="button" href="#stories">Explore stories ↓</a>
+  </div>
+  <div class="hero-art"><div class="circle">URBAN<br>NOTES</div><div class="line"></div></div>
+</section>
+
+<section class="stories" id="stories">
+  <div class="section-head">
+    <div><p class="eyebrow">LATEST STORIES</p><h2>Five things<br>on our mind.</h2></div>
+    <div class="filters">
+      <button class="filter active" data-category="All">All</button>
+      <button class="filter" data-category="Tech">Tech</button>
+      <button class="filter" data-category="Travel">Travel</button>
+      <button class="filter" data-category="Food">Food</button>
+      <button class="filter" data-category="Mindset">Mindset</button>
+    </div>
+  </div>
+  <div class="search-wrap"><input id="search" type="search" placeholder="Search stories..."></div>
+  <div class="grid" id="blogGrid">
+    <article class="card" data-category="Tech" data-title="Small AI tools making student life easier">
+      <span class="number">01</span><span class="tag">TECH</span><h3>Small AI tools making student life easier</h3><p>From organizing notes to turning a messy to-do list into a plan, tiny tools can make busy study days feel lighter.</p><button class="read" data-post="0">Read story →</button>
+    </article>
+    <article class="card" data-category="Travel" data-title="How to plan a memorable weekend trip">
+      <span class="number">02</span><span class="tag">TRAVEL</span><h3>How to plan a memorable weekend trip</h3><p>You do not need a huge itinerary. A simple route, one local experience and enough free time can be the perfect formula.</p><button class="read" data-post="1">Read story →</button>
+    </article>
+    <article class="card" data-category="Food" data-title="Why comfort food always feels different">
+      <span class="number">03</span><span class="tag">FOOD</span><h3>Why comfort food always feels different</h3><p>Sometimes the best meal is not the fanciest one. Taste, memory and the people around us can change how food feels.</p><button class="read" data-post="2">Read story →</button>
+    </article>
+    <article class="card" data-category="Mindset" data-title="The art of doing less, better">
+      <span class="number">04</span><span class="tag">MINDSET</span><h3>The art of doing less, better</h3><p>Productivity is not about filling every minute. Choosing fewer priorities can create room for better work and better rest.</p><button class="read" data-post="3">Read story →</button>
+    </article>
+    <article class="card" data-category="Travel" data-title="Finding beauty in your own city">
+      <span class="number">05</span><span class="tag">TRAVEL</span><h3>Finding beauty in your own city</h3><p>Look closer at familiar streets: a quiet café, an old building, a sunset from a bridge. Adventure can be surprisingly local.</p><button class="read" data-post="4">Read story →</button>
+    </article>
+  </div>
+  <p id="empty" class="empty" hidden>No stories found. Try another search.</p>
+</section>
+
+<section class="about" id="about">
+  <div><p class="eyebrow">OUR PHILOSOPHY</p><h2>Stay curious.<br>Look closer.</h2></div>
+  <p>Urban Echo is a student-friendly editorial blog built around simple ideas, useful discoveries and everyday observations. We believe interesting stories are everywhere—you just have to notice them.</p>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <p class="eyebrow">THE WEEKLY ECHO</p>
+  <h2>Get five fresh ideas<br>in your inbox.</h2>
+  <form id="newsletterForm"><input id="email" type="email" placeholder="Your email address" required><button class="button" type="submit">Subscribe</button></form>
+  <p id="message"></p>
+</section>
+</main>
+
+<footer><span>URBAN ECHO</span><span>Made for curious minds © 2026</span></footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="close" id="close">×</button>
+    <span id="modalTag" class="tag"></span><h2 id="modalTitle"></h2><p id="modalBody"></p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

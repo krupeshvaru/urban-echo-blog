@@ -1,0 +1,21 @@
+const posts=[
+["TECH","Small AI tools making student life easier","AI does not have to mean a complicated robot or a huge app. Some of the most useful tools are tiny helpers: a planner that groups tasks, a note tool that turns long material into key points, or a writing assistant that helps you organize an idea. The best approach is to use these tools as support, not as a replacement for learning. Keep your own notes, check important information, and let technology handle repetitive work so you have more time for the thinking that matters."],
+["TRAVEL","How to plan a memorable weekend trip","A memorable weekend does not need a packed schedule. Start with one place you genuinely want to see, then build a simple route around it. Leave room for a local food stop, a walk and an unexpected discovery. Before leaving, check travel times, weather and opening hours. Once you arrive, put the phone away for a while. The strongest travel memories often come from small moments that were never on the original itinerary."],
+["FOOD","Why comfort food always feels different","Comfort food is about more than flavor. A familiar dish can remind us of a family dinner, a rainy afternoon or a celebration with friends. That is why two people can taste the same meal and feel completely different things. Texture, smell, memory and atmosphere all play a part. You do not need an expensive restaurant to make food special; sometimes the ordinary meal at the right moment wins."],
+["MINDSET","The art of doing less, better","A busy schedule can look impressive while still leaving you exhausted. Doing less, better starts with choosing what actually deserves your attention. Pick a few important tasks, give them focused time and allow yourself genuine breaks. This does not mean being lazy. It means understanding that attention is limited. When you stop trying to do everything at once, the things you keep become easier to do well."],
+["TRAVEL","Finding beauty in your own city","We often notice details while travelling that we completely ignore at home. Try giving your own city the same attention. Walk down a street you normally pass, visit a small café, photograph an old building or watch the evening light from a familiar spot. You may discover that your city has stories you never noticed because they became part of the background. Curiosity can turn an ordinary afternoon into a mini adventure."]
+];
+
+const modal=document.getElementById("modal"), modalTitle=document.getElementById("modalTitle"), modalBody=document.getElementById("modalBody"), modalTag=document.getElementById("modalTag");
+document.querySelectorAll(".read").forEach(btn=>btn.addEventListener("click",()=>{const p=posts[+btn.dataset.post];modalTag.textContent=p[0];modalTitle.textContent=p[1];modalBody.textContent=p[2];modal.classList.add("show");modal.setAttribute("aria-hidden","false")}));
+document.getElementById("close").onclick=()=>{modal.classList.remove("show");modal.setAttribute("aria-hidden","true")};
+modal.addEventListener("click",e=>{if(e.target===modal)document.getElementById("close").click()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("close").click()});
+
+const cards=[...document.querySelectorAll(".card")], search=document.getElementById("search"), filters=[...document.querySelectorAll(".filter")];
+let category="All";
+function filterCards(){const q=search.value.toLowerCase();let count=0;cards.forEach(c=>{const okCat=category==="All"||c.dataset.category===category;const okText=c.dataset.title.toLowerCase().includes(q)||c.textContent.toLowerCase().includes(q);c.style.display=okCat&&okText?"block":"none";if(okCat&&okText)count++});document.getElementById("empty").hidden=count!==0}
+filters.forEach(f=>f.onclick=()=>{filters.forEach(x=>x.classList.remove("active"));f.classList.add("active");category=f.dataset.category;filterCards()});search.oninput=filterCards;
+document.getElementById("menuBtn").onclick=()=>document.getElementById("nav").classList.toggle("open");
+document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>document.getElementById("nav").classList.remove("open"));
+document.getElementById("newsletterForm").onsubmit=e=>{e.preventDefault();document.getElementById("message").textContent="You're on the list — welcome to Urban Echo!";e.target.reset()};
